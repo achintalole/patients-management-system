@@ -1,0 +1,1566 @@
+#:import hex kivy.utils.get_color_from_hex
+<ZeroWindow>:
+    name:'zero'
+
+    BoxLayout:
+        orientation:'vertical'
+        size:root.width,root.height
+
+        MDToolbar:
+            title: 'Welcome'
+
+            MDLabel:
+                text:str(root.t)
+
+
+        RelativeLayout:
+            size:300,300
+            Button:
+
+                background_color:0,0,0,0
+                mode:"rectangle"
+                size_hint:.17,.14
+
+                pos_hint:{'center_x':.6,'center_y':.7}
+                on_press:root.manager.current = "seven"
+                Image:
+                    source:"m6.png"
+                    center_x:self.parent.center_x
+                    center_y:self.parent.center_y
+                    size:self.parent.size
+                    stretch:True
+            Button:
+
+                mode:"rectangle"
+                size_hint:.17,.14
+                background_color:0,0,0,0
+                pos_hint:{'center_x':.3,'center_y':.7}
+                on_press:root.manager.current = "first"
+                Image:
+                    source:"m7.png"
+                    center_x:self.parent.center_x
+                    center_y:self.parent.center_y
+                    size:self.parent.size
+                    stretch:True
+<FirstWindow>:
+    name:'first'
+
+    BoxLayout:
+        orientation:'vertical'
+        size:root.width,root.height
+
+        MDToolbar:
+            title: 'Welcome'
+            left_action_items:[['a.png',lambda _:setattr(root.manager,'current','zero')]]
+
+            MDLabel:
+                text:str(root.t)
+
+
+        RelativeLayout:
+            size:300,300
+            Button:
+                mode:"rectangle"
+                size_hint:.17,.14
+                background_color:0,0,0,0
+                pos_hint:{'center_x':.3,'center_y':.9}
+                on_press:root.manager.current = "second"
+                Image:
+                    source:"m1.png"
+                    center_x:self.parent.center_x
+                    center_y:self.parent.center_y
+                    size:self.parent.size
+                    stretch:True
+
+            Button:
+                mode:"rectangle"
+                size_hint:.17,.14
+                background_color:0,0,0,0
+                pos_hint:{'center_x':.6,'center_y':.9}
+                on_press:root.manager.current = "third"
+                Image:
+                    source:"m5.png"
+                    center_x:self.parent.center_x
+                    center_y:self.parent.center_y
+                    size:self.parent.size
+                    stretch:True
+
+            Button:
+                mode:"rectangle"
+                size_hint:.17,.14
+                pos_hint:{'center_x':.3,'center_y':.65}
+                background_color:0,0,0,0
+                on_press:root.manager.current = "fifth"
+                Image:
+                    source:"s.png"
+                    center_x:self.parent.center_x
+                    center_y:self.parent.center_y
+                    size:self.parent.size
+                    stretch:True
+
+            Button:
+                mode:"rectangle"
+                size_hint:.17,.14
+                pos_hint:{'center_x':.6,'center_y':.65}
+                background_color:0,0,0,0
+                on_press:root.manager.current = "six"
+                Image:
+                    source:"repo.png"
+                    center_x:self.parent.center_x
+                    center_y:self.parent.center_y
+                    size:self.parent.size
+                    stretch:True
+
+            Button:
+                mode:"rectangle"
+                size_hint:.17,.14
+                background_color:0,0,0,0
+                pos_hint:{'center_x':.3,'center_y':.4}
+                on_press:root.submit()
+                Image:
+                    source:"rep.png"
+                    center_x:self.parent.center_x
+                    center_y:self.parent.center_y
+                    size:self.parent.size
+                    stretch:True
+
+
+<SecondWindow>:
+    name:'second'
+    pn:patn
+    tt:ti
+
+    gen:gend
+    mn:mob
+    add:addr
+    birt:birth
+    ag:age
+    com:comm
+    clin:clini
+    diag:diagn
+    inv:inves
+    trea:treat
+    datt:date_label
+    fee:fees
+    BoxLayout:
+        orientation:'vertical'
+        size:root.width,root.height
+
+        MDToolbar:
+            title: 'Welcome'
+            left_action_items:[['a.png',lambda _:setattr(root.manager,'current','first')]]
+            MDLabel:
+                id:ti
+                text:str(root.t)
+        MDBottomNavigation:
+
+
+            MDBottomNavigationItem:
+                name: 'screen 1'
+                text: 'Details'
+                icon:'mm1.png'
+
+
+
+                MDTextField:
+                    id:patn
+                    hint_text:"Patient Name"
+                    mode:"rectangle"
+                    pos_hint:{"center_x":0.5,"center_y":0.9}
+                    size_hint_x:.6
+
+                MDIcon:
+                    icon:'mm1.png'
+                    mode:'rectangle'
+                    pos_hint:{"center_x":0.1,"center_y":0.9}
+                    size_hint_x:.08
+                    size_hint_y:.08
+                MDIcon:
+                    icon:'no.png'
+                    mode:'rectangle'
+                    pos_hint:{"center_x":0.4,"center_y":0.75}
+                    size_hint_x:.08
+                    size_hint_y:.08
+
+                MDTextField:
+                    id:gend
+                    hint_text:"M/F"
+                    mode:"rectangle"
+                    pos_hint:{"center_x":0.25,"center_y":0.75}
+                    size_hint_x:.1
+                MDIcon:
+                    icon:'gen.png'
+                    mode:'rectangle'
+                    pos_hint:{"center_x":0.1,"center_y":0.75}
+                    size_hint_x:.08
+                    size_hint_y:.08
+                MDTextField:
+                    id:mob
+                    hint_text:"Mobile No"
+                    mode:"rectangle"
+                    text:"+91"
+
+                    pos_hint:{"center_x":0.64,"center_y":0.75}
+                    size_hint_x:.3
+
+                MDTextField:
+                    id:addr
+                    hint_text:"Address"
+                    mode:"rectangle"
+                    pos_hint:{"center_x":0.5,"center_y":0.6}
+                    size_hint_x:.6
+                MDIcon:
+                    icon:'hom.png'
+                    mode:'rectangle'
+                    pos_hint:{"center_x":0.1,"center_y":0.6}
+                    size_hint_x:.08
+                    size_hint_y:.08
+
+                    multiline: True
+                    max_height: "200dp"
+
+                MDTextField:
+                    id:birth
+                    hint_text:"Birthday"
+                    mode:"rectangle"
+                    pos_hint:{"center_x":0.3,"center_y":0.45}
+                    size_hint_x:.2
+                MDIcon:
+                    icon:'b.png'
+                    mode:'rectangle'
+                    pos_hint:{"center_x":0.1,"center_y":0.45}
+                    size_hint_x:.08
+                    size_hint_y:.08
+                MDTextField:
+                    id:age
+                    hint_text:"Age"
+                    mode:"rectangle"
+                    pos_hint:{"center_x":0.67,"center_y":0.45}
+                    size_hint_x:.1
+                MDIcon:
+                    icon:'age.png'
+                    mode:'rectangle'
+                    pos_hint:{"center_x":0.52,"center_y":0.45}
+                    size_hint_x:.08
+                    size_hint_y:.08
+                MDTextField:
+                    id:comm
+                    hint_text:"Comment"
+                    mode:"rectangle"
+                    pos_hint:{"center_x":0.5,"center_y":0.3}
+                    size_hint_x:.6
+                    multiline: True
+                    max_height: "200dp"
+                MDIcon:
+                    icon:'com.png'
+                    mode:'rectangle'
+                    pos_hint:{"center_x":0.1,"center_y":0.3}
+                    size_hint_x:.08
+                    size_hint_y:.08
+
+                    multiline: True
+                    max_height: "200dp"
+
+            MDBottomNavigationItem:
+                name: 'screen 2'
+                text: 'Treatment'
+                icon: 'ch.png'
+
+                MDTextField:
+                    id:clini
+                    hint_text:"Clinical Feature"
+                    mode:"rectangle"
+                    pos_hint:{"center_x":0.45,"center_y":0.9}
+                    size_hint_x:.5
+                    multiline: True
+
+                    on_text:root.show_example_list_bottom_sheet()
+
+                MDIcon:
+                    icon:'ch.png'
+                    mode:'rectangle'
+                    pos_hint:{"center_x":0.1,"center_y":0.9}
+                    size_hint_x:.08
+                    size_hint_y:.08
+
+
+                MDTextField:
+                    id:diagn
+                    hint_text:"Diagnosis"
+                    mode:"rectangle"
+                    pos_hint:{"center_x":0.45,"center_y":0.75}
+                    size_hint_x:.5
+                    multiline: True
+                    max_height: "200dp"
+                    on_text:root.dignosis()
+                MDIcon:
+                    icon:'dig.png'
+                    mode:'rectangle'
+                    pos_hint:{"center_x":0.1,"center_y":0.75}
+                    size_hint_x:.08
+                    size_hint_y:.08
+
+
+                MDTextField:
+                    id:inves
+                    hint_text:"Investigation"
+                    mode:"rectangle"
+                    pos_hint:{"center_x":0.45,"center_y":0.6}
+                    size_hint_x:.5
+
+                    multiline: True
+                    max_height: "200dp"
+                MDIcon:
+                    icon:'i.png'
+                    mode:'rectangle'
+                    pos_hint:{"center_x":0.1,"center_y":0.6}
+                    size_hint_x:.08
+                    size_hint_y:.08
+
+
+                MDTextField:
+                    id:treat
+                    hint_text:"Treatment"
+                    mode:"rectangle"
+                    pos_hint:{"center_x":0.45,"center_y":0.45}
+                    size_hint_x:.5
+                    multiline: True
+                    max_height: "200dp"
+                    on_text:root.tretment()
+                MDIcon:
+                    icon:'t.png'
+                    mode:'rectangle'
+                    pos_hint:{"center_x":0.1,"center_y":0.45}
+                    size_hint_x:.08
+                    size_hint_y:.08
+
+
+                MDTextField:
+                    id:date_label
+                    hint_text:"Date"
+                    mode:"rectangle"
+                    pos_hint:{"center_x":0.32,"center_y":0.3}
+                    size_hint_x:.24
+                MDIcon:
+                    icon:'d.png'
+                    mode:'rectangle'
+                    pos_hint:{"center_x":0.1,"center_y":0.3}
+                    size_hint_x:.08
+                    size_hint_y:.08
+                MDTextField:
+                    id:fees
+                    hint_text:"fees"
+                    mode:"rectangle"
+                    pos_hint:{"center_x":0.66,"center_y":0.3}
+                    size_hint_x:.1
+                MDIcon:
+                    icon:'f.png'
+                    mode:'rectangle'
+                    pos_hint:{"center_x":0.52,"center_y":0.3}
+                    size_hint_x:.08
+                    size_hint_y:.08
+                Button:
+                    text:"Return to main menu"
+                    mode:"rectangle"
+                    pos_hint:{"center_x":0.49,"center_y":0.15}
+                    size_hint_x:.17
+                    size_hint_y:.14
+                    background_color:0,0,0,0
+                    on_press:root.manager.current = "zero"
+                    Image:
+                        source:"re.png"
+                        center_x:self.parent.center_x
+                        center_y:self.parent.center_y
+                        size:self.parent.size
+                        stretch:True
+
+                Button:
+                    text:"Save"
+                    mode:"rectangle"
+                    pos_hint:{"center_x":0.245,"center_y":0.15}
+                    background_color:0,0,0,0
+                    size_hint_x:.17
+                    size_hint_y:.14
+                    on_press :root.submit()
+                    Image:
+                        source:"sub.png"
+                        center_x:self.parent.center_x
+                        center_y:self.parent.center_y
+                        size:self.parent.size
+                        stretch:True
+
+<ThirdWindow>:
+    name:'third'
+    searc:search
+    BoxLayout:
+        orientation:'vertical'
+        size:root.width,root.height
+
+        MDToolbar:
+            title: 'Previous Patient'
+            left_action_items:[['a.png',lambda _:setattr(root.manager,'current','first')]]
+            MDLabel:
+                text:str(root.t)
+        RelativeLayout:
+            size:300,300
+            MDTextField:
+                id:search
+                hint_text:"Search"
+                mode:"rectangle"
+                pos_hint:{"center_x":0.5,"center_y":0.8}
+                size_hint_x:.5
+                multiline: True
+                max_height: "200"
+
+                on_text:root.show_example_list_bottom_sheet()
+
+            Button:
+                text:'Search'
+
+                mode:"rectangle"
+                size_hint:.17,.14
+                background_color:0,0,0,0
+                pos_hint:{'center_x':.4,'center_y':.6}
+                on_press:root.hell()
+                on_press:
+                    root.manager.current = "fourth"
+                Image:
+                    source:"m5.png"
+                    center_x:self.parent.center_x
+                    center_y:self.parent.center_y
+                    size:self.parent.size
+                    stretch:True
+
+
+<FourthWindow>:
+    name:'fourth'
+    fud:fd
+    hel:hell
+    clin:clini
+    diag:diagn
+    inves:invest
+    treat:treat
+    name:'fourth'
+    fee:fees
+    BoxLayout:
+        orientation:'vertical'
+        size:root.width,root.height
+
+
+        MDToolbar:
+            title: 'Previous Patient'
+            left_action_items:[['a.png',lambda _:setattr(root.manager,'current','first')]]
+
+            MDLabel:
+                text:str(root.t)
+
+        MDBottomNavigation:
+
+
+            MDBottomNavigationItem:
+                name: 'screen 1'
+                text: 'Details'
+                icon:'m1.png'
+
+                MDLabel:
+                    id: hell
+                    text: "Patient History"
+                Button:
+                    text:"History"
+                    mode:"rectangle"
+                    pos_hint:{"center_x":0.5,"center_y":0.5}
+                    size_hint:.17,.14
+                    background_color:0,0,0,0
+                    on_release:root.old()
+                    Image:
+                        source:"his.png"
+                        center_x:self.parent.center_x
+                        center_y:self.parent.center_y
+                        size:self.parent.size
+                        stretch:True
+
+            MDBottomNavigationItem:
+                name: 'screen 2'
+                text: 'Treatment'
+                icon: 'ch.png'
+                MDTextField:
+                    id:clini
+                    hint_text:"Clinical Feature"
+                    mode:"rectangle"
+                    pos_hint:{"center_x":0.45,"center_y":0.9}
+                    size_hint_x:.5
+                    multiline: True
+                    on_text:root.show_example_list_bottom_sheet()
+                MDIcon:
+                    icon:'mm1.png'
+                    mode:'rectangle'
+                    pos_hint:{"center_x":0.1,"center_y":0.9}
+                    size_hint_x:.08
+                    size_hint_y:.08
+
+
+                MDTextField:
+                    id:diagn
+                    hint_text:"Diagnosis"
+                    mode:"rectangle"
+                    pos_hint:{"center_x":0.45,"center_y":0.75}
+                    size_hint_x:.5
+                    multiline: True
+                    max_height: "200dp"
+                    on_text:root.dignosis()
+                MDIcon:
+                    icon:'dig.png'
+                    mode:'rectangle'
+                    pos_hint:{"center_x":0.1,"center_y":0.75}
+                    size_hint_x:.08
+                    size_hint_y:.08
+                MDTextField:
+                    id: invest
+                    hint_text:"Investigation"
+                    mode:"rectangle"
+                    pos_hint:{"center_x":0.45,"center_y":0.6}
+                    size_hint_x:.5
+
+                    multiline: True
+                    max_height: "200dp"
+                MDIcon:
+                    icon:'i.png'
+                    mode:'rectangle'
+                    pos_hint:{"center_x":0.1,"center_y":0.6}
+                    size_hint_x:.08
+                    size_hint_y:.08
+                MDTextField:
+                    id: treat
+                    hint_text:"Treatment"
+                    mode:"rectangle"
+                    pos_hint:{"center_x":0.45,"center_y":0.45}
+                    size_hint_x:.5
+                    multiline: True
+                    max_height: "200dp"
+                    on_text:root.tretment()
+                MDIcon:
+                    icon:'t.png'
+                    mode:'rectangle'
+                    pos_hint:{"center_x":0.1,"center_y":0.45}
+                    size_hint_x:.08
+                    size_hint_y:.08
+
+                MDTextField:
+                    id:fd
+                    hint_text:"Date"
+                    mode:"rectangle"
+                    pos_hint:{"center_x":0.32,"center_y":0.3}
+                    size_hint_x:.24
+                MDIcon:
+                    icon:'d.png'
+                    mode:'rectangle'
+                    pos_hint:{"center_x":0.1,"center_y":0.3}
+                    size_hint_x:.08
+                    size_hint_y:.08
+                MDTextField:
+                    id:fees
+                    hint_text:"Fees"
+                    mode:"rectangle"
+                    pos_hint:{"center_x":0.66,"center_y":0.3}
+                    size_hint_x:.1
+                MDIcon:
+                    icon:'f.png'
+                    mode:'rectangle'
+                    pos_hint:{"center_x":0.52,"center_y":0.3}
+                    size_hint_x:.08
+                    size_hint_y:.08
+                Button:
+                    text:"Return to main menu"
+                    mode:"rectangle"
+                    background_color:0,0,0,0
+                    pos_hint:{"center_x":0.49,"center_y":0.15}
+                    size_hint_x:.17
+                    size_hint_y:.14
+                    on_press :root.manager.current='zero'
+                    Image:
+                        source:"re.png"
+                        center_x:self.parent.center_x
+                        center_y:self.parent.center_y
+                        size:self.parent.size
+                        stretch:True
+                Button:
+                    text:"Add"
+                    mode:"rectangle"
+                    background_color:0,0,0,0
+                    pos_hint:{"center_x":0.245,"center_y":0.15}
+                    size_hint_x:.17
+                    size_hint_y:.14
+                    on_press :root.add()
+                    Image:
+                        source:"sub.png"
+                        center_x:self.parent.center_x
+                        center_y:self.parent.center_y
+                        size:self.parent.size
+                        stretch:True
+
+<FifthWindow>
+    name:'fifth'
+    clin:clini
+    diag:diagn
+    inves:invest
+    treat:treat
+    BoxLayout:
+        orientation:'vertical'
+        size:root.width,root.height
+
+
+        MDToolbar:
+            title: 'Do you want to add something'
+            left_action_items:[['a.png',lambda _:setattr(root.manager,'current','first')]]
+
+            MDLabel:
+                text:str(root.t)
+        RelativeLayout:
+            size:300,300
+            MDTextField:
+                id:clini
+                hint_text:"Clinical Feature"
+                mode:"rectangle"
+                pos_hint:{"center_x":0.31,"center_y":0.9}
+                size_hint_x:.4
+                multiline: True
+            MDRaisedButton:
+                text:"Add"
+                mode:"rectangle"
+                pos_hint:{"center_x":0.8,"center_y":0.9}
+                size_hint_x:.1
+                on_press :root.clinical()
+            MDTextField:
+                id:diagn
+                hint_text:"Diagnosis"
+                mode:"rectangle"
+                pos_hint:{"center_x":0.31,"center_y":0.7}
+                size_hint_x:.4
+                multiline: True
+                max_height: "200dp"
+            MDRaisedButton:
+                text:"Add"
+                mode:"rectangle"
+                pos_hint:{"center_x":0.8,"center_y":0.7}
+                size_hint_x:.1
+                on_press :root.Diagnosis()
+            MDTextField:
+                id: invest
+                hint_text:"Investigation"
+                mode:"rectangle"
+                pos_hint:{"center_x":0.31,"center_y":0.5}
+                size_hint_x:.4
+
+                multiline: True
+                max_height: "200dp"
+            MDRaisedButton:
+                text:"Add"
+                mode:"rectangle"
+                pos_hint:{"center_x":0.8,"center_y":0.5}
+                size_hint_x:.1
+                on_press :root.Investigation()
+            MDTextField:
+                id: treat
+                hint_text:"Treatment"
+                mode:"rectangle"
+                pos_hint:{"center_x":0.31,"center_y":0.3}
+                size_hint_x:.4
+                multiline: True
+                max_height: "200dp"
+            MDRaisedButton:
+                text:"Add"
+                mode:"rectangle"
+                pos_hint:{"center_x":0.8,"center_y":0.3}
+                size_hint_x:.1
+                on_press :root.Treatment()
+
+
+            MDRaisedButton:
+                text:"Return to main menu"
+                mode:"rectangle"
+                pos_hint:{"center_x":0.6,"center_y":0.1}
+                size_hint_x:.3
+                on_press :root.manager.current='zero'
+
+<SixWindow>:
+    mon:mon
+    BoxLayout:
+        orientation:'vertical'
+        size:root.width,root.height
+
+
+        MDToolbar:
+            title: 'Overall Total'
+            left_action_items:[['a.png',lambda _:setattr(root.manager,'current','first')]]
+
+            MDLabel:
+                text:str(root.t)
+        RelativeLayout:
+            size:300,300
+            MDLabel:
+                id:mon
+                text: str(root.df)
+                pos_hint:{"center_x":0.8,"center_y":.9}
+                theme_text_color: "Custom"
+                text_color: 0, 0, 1, 1
+            MDLabel:
+                id:mon
+                text: str(root.df1)
+                pos_hint:{"center_x":0.8,"center_y":.7}
+                theme_text_color: "Custom"
+                text_color: 0, 0, 1, 1
+
+
+
+<SevenWindow>:
+    name:'seven'
+    searc:search
+    searc1:search1
+    hist:hist
+    BoxLayout:
+        orientation:'vertical'
+        size:root.width,root.height
+        MDToolbar:
+            title: 'Welcome'
+
+
+            left_action_items:[['a.png',lambda _:setattr(root.manager,'current','zero')]]
+
+            MDLabel:
+                id:ti
+                text:str(root.t)
+
+        RelativeLayout:
+            size:300,300
+            MDLabel:
+                id:month
+                text: "Operated Patient"
+                pos_hint:{"center_x":0.8,"center_y":.9}
+                theme_text_color: "Custom"
+                text_color: 0, 0, 1, 1
+            MDTextFieldRound:
+                id:search
+                hint_text:"Search"
+                pos_hint:{"center_x":0.45,"center_y":0.8}
+                size_hint_x: .3
+                size_hint_y: .1
+                on_text:root.Auto()
+                on_text:root.show_example_list_bottom_sheet()
+            Button:
+                id: button
+                text: 'New Add'
+                size_hint:.17,.14
+                background_color:0,0,0,0
+                pos_hint:{"center_x":0.3,"center_y":0.65}
+                on_press:
+                    root.manager.current = "eight"
+                Image:
+                    source:"m2.png"
+                    center_x:self.parent.center_x
+                    center_y:self.parent.center_y
+                    size:self.parent.size
+                    stretch:True
+            Button:
+                text:"Previous Search"
+                mode:"rectangle"
+                pos_hint:{"center_x":0.6,"center_y":0.65}
+                size_hint:.17,.14
+                background_color:0,0,0,0
+                on_press:root.hell()
+                on_press:
+                    root.manager.current = "ten"
+                Image:
+                    source:"m5.png"
+                    center_x:self.parent.center_x
+                    center_y:self.parent.center_y
+                    size:self.parent.size
+                    stretch:True
+            MDLabel:
+                id:month
+                text: "Non-Operated Patient"
+                pos_hint:{"center_x":0.8,"center_y":.5}
+                theme_text_color: "Custom"
+                text_color: 0, 0, 1, 1
+            MDTextFieldRound:
+                id:search1
+                hint_text:"Search"
+                pos_hint:{"center_x":0.45,"center_y":0.4}
+                size_hint_x: .3
+                size_hint_y: .1
+                on_text:root.Auto1()
+                on_text:root.show_example_list_bottom_sheet1()
+            Button:
+                id: button
+                text: 'New Add'
+                background_color:0,0,0,0
+                size_hint:.17,.14
+                pos_hint:{"center_x":0.3,"center_y":0.25}
+                on_press:
+                    root.manager.current = "nine"
+                Image:
+                    source:"m2.png"
+                    center_x:self.parent.center_x
+                    center_y:self.parent.center_y
+                    size:self.parent.size
+                    stretch:True
+            Button:
+                id:hist
+                text:"Previous Search"
+                mode:"rectangle"
+                background_color:0,0,0,0
+                pos_hint:{"center_x":0.6,"center_y":0.25}
+                size_hint:.17,.14
+                on_press:root.hell1()
+                on_press:root.manager.current="eleven"
+
+                Image:
+                    source:"m5.png"
+                    center_x:self.parent.center_x
+                    center_y:self.parent.center_y
+                    size:self.parent.size
+                    stretch:True
+
+            Button:
+                text: "Report"
+                size_hint:.17,.14
+                background_color:0,0,0,0
+                pos_hint: {"center_x": .8, "center_y": .15}
+                on_press:app.show_example_custom_bottom_sheet()
+                Image:
+                    source:"repo.png"
+                    center_x:self.parent.center_x
+                    center_y:self.parent.center_y
+                    size:self.parent.size
+                    stretch:True
+            Button:
+                text: "Setting"
+                pos_hint: {"center_x": .8, "center_y": .4}
+                background_color:0,0,0,0
+                size_hint:0.17,0.14
+                on_press:root.manager.current = "twelve"
+                Image:
+                    source:"s.png"
+                    center_x:self.parent.center_x
+                    center_y:self.parent.center_y
+                    size:self.parent.size
+                    stretch:True
+<ItemForCustomBottomSheet@OneLineIconListItem>
+    on_press: app.custom_sheet.dismiss()
+
+<ContentCustomSheet@BoxLayout>:
+    orientation: "vertical"
+    size_hint_y: None
+    height: "400dp"
+    MDToolbar:
+        title: 'Choose report:'
+    ScrollView:
+        MDGridLayout:
+            cols: 1
+            adaptive_height: True
+            ItemForCustomBottomSheet:
+
+                text: "Daily"
+                on_press:app.Daily()
+            ItemForCustomBottomSheet:
+
+                text: "Monthly"
+                on_press:app.Monthly()
+            ItemForCustomBottomSheet:
+
+                text: "Yearly"
+                on_press:app.Yearly()
+
+
+<EightWindow>:
+    name:'eight'
+    pn:patn
+    tt:ti
+
+    gen:gend
+    mn:mob
+    add:addr
+    birt:birth
+    ag:age
+    com:comm
+
+    diag:diagn
+
+
+    datt:date_label
+    fee:fees
+    BoxLayout:
+        orientation:'vertical'
+        size:root.width,root.height
+        MDToolbar:
+            title: 'Welcome'
+            left_action_items:[['a.png',lambda _:setattr(root.manager,'current','seven')]]
+            MDLabel:
+                id:ti
+                text:str(root.t)
+
+        MDBottomNavigation:
+
+            MDBottomNavigationItem:
+                name: 'screen 1'
+                text: 'Details'
+                icon:'m2.png'
+                MDTextField:
+                    id:patn
+                    hint_text:"Patient Name"
+                    mode:"rectangle"
+                    pos_hint:{"center_x":0.5,"center_y":0.9}
+                    size_hint_x:.6
+
+                MDIcon:
+                    icon:'mm1.png'
+                    mode:'rectangle'
+                    pos_hint:{"center_x":0.1,"center_y":0.9}
+                    size_hint_x:.08
+                    size_hint_y:.08
+                MDIcon:
+                    icon:'no.png'
+                    mode:'rectangle'
+                    pos_hint:{"center_x":0.4,"center_y":0.75}
+                    size_hint_x:.08
+                    size_hint_y:.08
+
+                MDTextField:
+                    id:gend
+                    hint_text:"M/F"
+                    mode:"rectangle"
+                    pos_hint:{"center_x":0.25,"center_y":0.75}
+                    size_hint_x:.1
+                MDIcon:
+                    icon:'gen.png'
+                    mode:'rectangle'
+                    pos_hint:{"center_x":0.1,"center_y":0.75}
+                    size_hint_x:.08
+                    size_hint_y:.08
+
+                MDTextField:
+                    id:mob
+                    hint_text:"Mobile No"
+                    mode:"rectangle"
+                    text:"+91"
+
+                    pos_hint:{"center_x":0.64,"center_y":0.75}
+                    size_hint_x:.3
+
+                MDTextField:
+                    id:addr
+                    hint_text:"Address"
+                    mode:"rectangle"
+                    pos_hint:{"center_x":0.5,"center_y":0.6}
+                    size_hint_x:.6
+
+                    multiline: True
+                    max_height: "200dp"
+                MDIcon:
+                    icon:'hom.png'
+                    mode:'rectangle'
+                    pos_hint:{"center_x":0.1,"center_y":0.6}
+                    size_hint_x:.08
+                    size_hint_y:.08
+
+                MDTextField:
+                    id:birth
+                    hint_text:"Birthday"
+                    mode:"rectangle"
+                    pos_hint:{"center_x":0.3,"center_y":0.45}
+                    size_hint_x:.2
+                MDIcon:
+                    icon:'b.png'
+                    mode:'rectangle'
+                    pos_hint:{"center_x":0.1,"center_y":0.45}
+                    size_hint_x:.08
+                    size_hint_y:.08
+                MDTextField:
+                    id:age
+                    hint_text:"Age"
+                    mode:"rectangle"
+                    pos_hint:{"center_x":0.67,"center_y":0.45}
+                    size_hint_x:.1
+
+            MDBottomNavigationItem:
+                name: 'screen 2'
+                text: 'Treatment'
+                icon: 'ch.png'
+                MDTextField:
+                    id:diagn
+                    hint_text:"Diagnosis"
+                    mode:"rectangle"
+                    pos_hint:{"center_x":0.45,"center_y":0.9}
+                    size_hint_x:.5
+                    multiline: True
+                    max_height: "200dp"
+                    on_text:root.dignosis()
+                MDIcon:
+                    icon:'dig.png'
+                    mode:'rectangle'
+                    pos_hint:{"center_x":0.1,"center_y":0.9}
+                    size_hint_x:.08
+                    size_hint_y:.08
+                MDTextField:
+                    id:comm
+                    hint_text:"Comment"
+                    mode:"rectangle"
+                    pos_hint:{"center_x":0.45,"center_y":0.6}
+                    size_hint_x:.5
+                    multiline: True
+                    max_height: "200dp"
+                MDIcon:
+                    icon:'com.png'
+                    mode:'rectangle'
+                    pos_hint:{"center_x":0.1,"center_y":0.6}
+                    size_hint_x:.08
+                    size_hint_y:.08
+
+                MDTextField:
+                    id:date_label
+                    hint_text:"Date"
+                    mode:"rectangle"
+                    pos_hint:{"center_x":0.32,"center_y":0.3}
+                    size_hint_x:.24
+                MDIcon:
+                    icon:'d.png'
+                    mode:'rectangle'
+                    pos_hint:{"center_x":0.1,"center_y":0.3}
+                    size_hint_x:.08
+                    size_hint_y:.08
+                MDTextField:
+                    id:fees
+                    hint_text:"fees"
+                    mode:"rectangle"
+                    pos_hint:{"center_x":0.66,"center_y":0.3}
+                    size_hint_x:.1
+                MDIcon:
+                    icon:'f.png'
+                    mode:'rectangle'
+                    pos_hint:{"center_x":0.52,"center_y":0.3}
+                    size_hint_x:.08
+                    size_hint_y:.08
+
+                Button:
+                    text:"Return to main menu"
+                    mode:"rectangle"
+                    pos_hint:{"center_x":0.49,"center_y":0.15}
+                    size_hint_x:.17
+                    background_color:0,0,0,0
+                    size_hint_y:.14
+                    on_press:root.manager.current = "zero"
+                    Image:
+                        source:"re.png"
+                        center_x:self.parent.center_x
+                        center_y:self.parent.center_y
+                        size:self.parent.size
+                        stretch:True
+                Button:
+                    text:"Save"
+                    mode:"rectangle"
+                    pos_hint:{"center_x":0.245,"center_y":0.15}
+                    background_color:0,0,0,0
+                    size_hint_x:.17
+                    size_hint_y:.14
+                    on_press :root.submit()
+                    Image:
+                        source:"sub.png"
+                        center_x:self.parent.center_x
+                        center_y:self.parent.center_y
+                        size:self.parent.size
+                        stretch:True
+<NineWindow>:
+    name:'nine'
+    pn:patn
+    tt:ti
+
+    gen:gend
+    mn:mob
+    add:addr
+    birt:birth
+    ag:age
+    com:comm
+    diag:diagn
+    datt:date_label
+
+    BoxLayout:
+        orientation:'vertical'
+        size:root.width,root.height
+        MDToolbar:
+            title: 'Welcome'
+            left_action_items:[['a.png',lambda _:setattr(root.manager,'current','seven')]]
+            MDLabel:
+                id:ti
+                text:str(root.t)
+
+
+
+        MDBottomNavigation:
+
+            MDBottomNavigationItem:
+                name: 'screen 1'
+                text: 'Details'
+                icon:'m2.png'
+
+                MDTextField:
+                    id:patn
+                    hint_text:"Patient Name"
+                    mode:"rectangle"
+                    pos_hint:{"center_x":0.5,"center_y":0.9}
+                    size_hint_x:.6
+
+                MDIcon:
+                    icon:'mm1.png'
+                    mode:'rectangle'
+                    pos_hint:{"center_x":0.1,"center_y":0.9}
+                    size_hint_x:.08
+                    size_hint_y:.08
+                MDIcon:
+                    icon:'no.png'
+                    mode:'rectangle'
+                    pos_hint:{"center_x":0.4,"center_y":0.75}
+                    size_hint_x:.08
+                    size_hint_y:.08
+
+                MDTextField:
+                    id:gend
+                    hint_text:"M/F"
+                    mode:"rectangle"
+                    pos_hint:{"center_x":0.25,"center_y":0.75}
+                    size_hint_x:.1
+                MDIcon:
+                    icon:'gen.png'
+                    mode:'rectangle'
+                    pos_hint:{"center_x":0.1,"center_y":0.75}
+                    size_hint_x:.08
+                    size_hint_y:.08
+
+                MDTextField:
+                    id:mob
+                    hint_text:"Mobile No"
+                    mode:"rectangle"
+                    text:"+91"
+
+                    pos_hint:{"center_x":0.64,"center_y":0.75}
+                    size_hint_x:.3
+
+                MDTextField:
+                    id:addr
+                    hint_text:"Address"
+                    mode:"rectangle"
+                    pos_hint:{"center_x":0.5,"center_y":0.6}
+                    size_hint_x:.6
+
+                    multiline: True
+                    max_height: "200dp"
+                MDIcon:
+                    icon:'hom.png'
+                    mode:'rectangle'
+                    pos_hint:{"center_x":0.1,"center_y":0.6}
+                    size_hint_x:.08
+                    size_hint_y:.08
+
+                MDTextField:
+                    id:birth
+                    hint_text:"Birthday"
+                    mode:"rectangle"
+                    pos_hint:{"center_x":0.3,"center_y":0.45}
+                    size_hint_x:.2
+                MDIcon:
+                    icon:'b.png'
+                    mode:'rectangle'
+                    pos_hint:{"center_x":0.1,"center_y":0.45}
+                    size_hint_x:.08
+                    size_hint_y:.08
+                MDTextField:
+                    id:age
+                    hint_text:"Age"
+                    mode:"rectangle"
+                    pos_hint:{"center_x":0.67,"center_y":0.45}
+                    size_hint_x:.1
+
+
+
+            MDBottomNavigationItem:
+                name: 'screen 2'
+                text: 'Treatment'
+                icon: 'ch.png'
+                MDTextField:
+                    id:diagn
+                    hint_text:"Diagnosis"
+                    mode:"rectangle"
+                    pos_hint:{"center_x":0.45,"center_y":0.9}
+                    size_hint_x:.5
+                    multiline: True
+                    max_height: "200dp"
+                    on_text:root.dignosis()
+                MDIcon:
+                    icon:'dig.png'
+                    mode:'rectangle'
+                    pos_hint:{"center_x":0.1,"center_y":0.9}
+                    size_hint_x:.08
+                    size_hint_y:.08
+                MDTextField:
+                    id:comm
+                    hint_text:"Comment"
+                    mode:"rectangle"
+                    pos_hint:{"center_x":0.45,"center_y":0.6}
+                    size_hint_x:.5
+                    multiline: True
+                    max_height: "200dp"
+                MDIcon:
+                    icon:'com.png'
+                    mode:'rectangle'
+                    pos_hint:{"center_x":0.1,"center_y":0.6}
+                    size_hint_x:.08
+                    size_hint_y:.08
+
+                MDTextField:
+                    id:date_label
+                    hint_text:"Date"
+                    mode:"rectangle"
+                    pos_hint:{"center_x":0.32,"center_y":0.3}
+                    size_hint_x:.24
+                MDIcon:
+                    icon:'d.png'
+                    mode:'rectangle'
+                    pos_hint:{"center_x":0.1,"center_y":0.3}
+                    size_hint_x:.08
+                    size_hint_y:.08
+
+                Button:
+                    text:"Return to main menu"
+                    mode:"rectangle"
+                    pos_hint:{"center_x":0.49,"center_y":0.15}
+                    size_hint_x:.17
+                    background_color:0,0,0,0
+                    size_hint_y:.14
+                    on_press:root.manager.current = "zero"
+                    Image:
+                        source:"re.png"
+                        center_x:self.parent.center_x
+                        center_y:self.parent.center_y
+                        size:self.parent.size
+                        stretch:True
+                Button:
+                    text:"Save"
+                    mode:"rectangle"
+                    pos_hint:{"center_x":0.245,"center_y":0.15}
+                    background_color:0,0,0,0
+                    size_hint_x:.17
+                    size_hint_y:.14
+                    background_color:0,0,0,0
+                    on_press :root.submit()
+                    Image:
+                        source:"sub.png"
+                        center_x:self.parent.center_x
+                        center_y:self.parent.center_y
+                        size:self.parent.size
+                        stretch:True
+<TenWindow>:
+    name:'ten'
+    fud:fd
+    hel:hell
+
+    diag:diagn
+    com:comm
+
+    name:'fourth'
+    fee:fees
+    BoxLayout:
+        orientation:'vertical'
+        size:root.width,root.height
+
+
+        MDToolbar:
+            title: 'Previous Patient'
+            left_action_items:[['a.png',lambda _:setattr(root.manager,'current','seven')]]
+
+            MDLabel:
+                text:str(root.t)
+
+
+        MDBottomNavigation:
+
+
+            MDBottomNavigationItem:
+                name: 'screen 1'
+                text: 'Details'
+                icon:'m2.png'
+
+                MDLabel:
+                    id: hell
+                    text: "Patient History"
+                Button:
+                    text:"History"
+                    mode:"rectangle"
+                    pos_hint:{"center_x":0.5,"center_y":0.5}
+                    size_hint:.17,.14
+                    background_color:0,0,0,0
+                    on_release:root.old()
+                    Image:
+                        source:"m5.png"
+                        center_x:self.parent.center_x
+                        center_y:self.parent.center_y
+                        size:self.parent.size
+                        stretch:True
+
+            MDBottomNavigationItem:
+                name: 'screen 2'
+                text: 'Treatment'
+                icon: 'ch.png'
+                MDTextField:
+                    id:diagn
+                    hint_text:"Diagnosis"
+                    mode:"rectangle"
+                    pos_hint:{"center_x":0.45,"center_y":0.9}
+                    size_hint_x:.5
+                    multiline: True
+                    max_height: "200dp"
+                    on_text:root.dignosis()
+                MDIcon:
+                    icon:'dig.png'
+                    mode:'rectangle'
+                    pos_hint:{"center_x":0.1,"center_y":0.9}
+                    size_hint_x:.08
+                    size_hint_y:.08
+
+                MDTextField:
+                    id: comm
+                    hint_text:"Comment"
+                    mode:"rectangle"
+                    pos_hint:{"center_x":0.45,"center_y":0.6}
+                    size_hint_x:.5
+
+                    multiline: True
+                    max_height: "200dp"
+                MDIcon:
+                    icon:'com.png'
+                    mode:'rectangle'
+                    pos_hint:{"center_x":0.1,"center_y":0.6}
+                    size_hint_x:.08
+                    size_hint_y:.08
+                MDTextField:
+                    id:fd
+                    hint_text:"Date"
+                    mode:"rectangle"
+                    pos_hint:{"center_x":0.32,"center_y":0.3}
+                    size_hint_x:.24
+                MDIcon:
+                    icon:'d.png'
+                    mode:'rectangle'
+                    pos_hint:{"center_x":0.1,"center_y":0.3}
+                    size_hint_x:.08
+                    size_hint_y:.08
+                MDTextField:
+                    id:fees
+                    hint_text:"Fees"
+                    mode:"rectangle"
+                    pos_hint:{"center_x":0.66,"center_y":0.3}
+                    size_hint_x:.1
+                MDIcon:
+                    icon:'f.png'
+                    mode:'rectangle'
+                    pos_hint:{"center_x":0.52,"center_y":0.3}
+                    size_hint_x:.08
+                    size_hint_y:.08
+                Button:
+                    text:"return"
+                    mode:"rectangle"
+                    pos_hint:{"center_x":0.45,"center_y":0.15}
+                    size_hint:.17,.14
+                    background_color:0,0,0,0
+                    on_press :root.manager.current='zero'
+                    Image:
+                        source:"re.png"
+                        center_x:self.parent.center_x
+                        center_y:self.parent.center_y
+                        size:self.parent.size
+                        stretch:True
+                Button:
+                    text:"Add"
+                    mode:"rectangle"
+                    pos_hint:{"center_x":0.245,"center_y":0.15}
+                    size_hint:.17,.14
+                    background_color:0,0,0,0
+                    on_press :root.add()
+                    Image:
+                        source:"sub.png"
+                        center_x:self.parent.center_x
+                        center_y:self.parent.center_y
+                        size:self.parent.size
+                        stretch:True
+<ElevenWindow>:
+    name:'eleven'
+    fud:fd
+    hel:hell
+
+    diag:diagn
+    com:comm
+
+
+
+    BoxLayout:
+        orientation:'vertical'
+        size:root.width,root.height
+
+
+        MDToolbar:
+            title: 'Previous Patient'
+            left_action_items:[['a.png',lambda _:setattr(root.manager,'current','seven')]]
+
+            MDLabel:
+                text:str(root.t)
+
+        MDBottomNavigation:
+
+
+            MDBottomNavigationItem:
+                name: 'screen 1'
+                text: 'Details'
+                icon:'m2.png'
+
+                MDLabel:
+                    id: hell
+                    text: "Patient History"
+                Button:
+                    text:"History"
+                    mode:"rectangle"
+                    pos_hint:{"center_x":0.5,"center_y":0.5}
+                    size_hint:.17,.14
+                    background_color:0,0,0,0
+                    on_release:root.old()
+                    Image:
+                        source:"m5.png"
+                        center_x:self.parent.center_x
+                        center_y:self.parent.center_y
+                        size:self.parent.size
+                        stretch:True
+
+            MDBottomNavigationItem:
+                name: 'screen 2'
+                text: 'Treatment'
+                icon: 'ch.png'
+                MDTextField:
+                    id:diagn
+                    hint_text:"Diagnosis"
+                    mode:"rectangle"
+                    pos_hint:{"center_x":0.45,"center_y":0.9}
+                    size_hint_x:.5
+                    multiline: True
+                    max_height: "200dp"
+                    on_text:root.dignosis()
+                MDIcon:
+                    icon:'dig.png'
+                    mode:'rectangle'
+                    pos_hint:{"center_x":0.1,"center_y":0.9}
+                    size_hint_x:.08
+                    size_hint_y:.08
+                MDTextField:
+                    id: comm
+                    hint_text:"Comment"
+                    mode:"rectangle"
+                    pos_hint:{"center_x":0.45,"center_y":0.6}
+                    size_hint_x:.5
+
+                    multiline: True
+                    max_height: "200dp"
+                MDIcon:
+                    icon:'com.png'
+                    mode:'rectangle'
+                    pos_hint:{"center_x":0.1,"center_y":0.6}
+                    size_hint_x:.08
+                    size_hint_y:.08
+
+                MDTextField:
+                    id:fd
+                    hint_text:"Date"
+                    mode:"rectangle"
+                    pos_hint:{"center_x":0.32,"center_y":0.3}
+                    size_hint_x:.2
+                MDIcon:
+                    icon:'d.png'
+                    mode:'rectangle'
+                    pos_hint:{"center_x":0.1,"center_y":0.3}
+                    size_hint_x:.08
+                    size_hint_y:.08
+
+                Button:
+                    text:"return"
+                    mode:"rectangle"
+                    pos_hint:{"center_x":0.45,"center_y":0.15}
+                    size_hint:.17,.14
+                    background_color:0,0,0,0
+                    on_press :root.manager.current='zero'
+                    Image:
+                        source:"re.png"
+                        center_x:self.parent.center_x
+                        center_y:self.parent.center_y
+                        size:self.parent.size
+                        stretch:True
+                Button:
+                    text:"Add"
+                    mode:"rectangle"
+                    pos_hint:{"center_x":0.245,"center_y":0.15}
+                    size_hint:.17,.14
+                    background_color:0,0,0,0
+                    on_press :root.add()
+                    Image:
+                        source:"sub.png"
+                        center_x:self.parent.center_x
+                        center_y:self.parent.center_y
+                        size:self.parent.size
+                        stretch:True
+
+<TwelveWindow>:
+    name:'twelve'
+    diag:diagn
+    BoxLayout:
+        orientation:'vertical'
+        size:root.width,root.height
+
+
+        MDToolbar:
+            title: 'Add Diagnosis'
+            left_action_items:[['a.png',lambda _:setattr(root.manager,'current','seven')]]
+
+            MDLabel:
+                text:str(root.t)
+        RelativeLayout:
+            size:300,300
+            MDTextField:
+                id:diagn
+                hint_text:"Diagnosis"
+                mode:"rectangle"
+                pos_hint:{"center_x":0.45,"center_y":0.65}
+                size_hint_x:.5
+                multiline: True
+                max_height: "200dp"
+            Button:
+                text:"Add"
+                mode:"rectangle"
+                pos_hint:{"center_x":0.245,"center_y":0.15}
+                background_color:0,0,0,0
+                size_hint_x:.17
+                size_hint_y:.14
+                on_press :root.add()
+                Image:
+                    source:"sub.png"
+                    center_x:self.parent.center_x
+                    center_y:self.parent.center_y
+                    size:self.parent.size
+                    stretch:True
+
+            Button:
+                text:"return"
+                mode:"rectangle"
+                pos_hint:{"center_x":0.45,"center_y":0.15}
+                size_hint_x:.17
+                size_hint_y:.14
+                background_color:0,0,0,0
+                on_press :root.manager.current='zero'
+                Image:
+                    source:"re.png"
+                    center_x:self.parent.center_x
+                    center_y:self.parent.center_y
+                    size:self.parent.size
+                    stretch:True
